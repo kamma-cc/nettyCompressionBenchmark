@@ -190,7 +190,7 @@ public class BetterJdkZlibEncoder extends ZlibEncoder {
                 compressData(in, out);
             }
         }
-//        deflate(out, true);
+        deflate(out, true);
     }
 
     private void compressData(ByteBuffer in, ByteBuf out) {
@@ -210,7 +210,7 @@ public class BetterJdkZlibEncoder extends ZlibEncoder {
 
             deflater.setInput(in);
             for (;;) {
-                deflate(out, true);
+                deflate(out, false);
                 if (deflater.needsInput()) {
                     // Consumed everything
                     break;
